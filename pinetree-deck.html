@@ -169,6 +169,27 @@ em{font-style:normal;color:var(--ink-soft);}
 .bars-axis{display:flex;gap:26px;border-top:1.5px solid var(--ink);margin-top:18px;padding-top:14px;}
 .bars-axis .t{width:70px;font-family:var(--mono);font-size:16px;text-align:center;color:var(--ink);letter-spacing:.02em;}
 
+/* rate line chart (real freight-index data) */
+.ratechart{width:100%;max-height:400px;}
+.ratechart svg{width:100%;height:auto;display:block;max-height:400px;}
+.ratechart-axis{display:flex;justify-content:space-between;border-top:1.5px solid var(--ink);margin-top:12px;padding-top:12px;}
+.ratechart-axis .t{font-family:var(--mono);font-size:18px;color:var(--ink);letter-spacing:.02em;}
+.s-chart .ratechart + .ratechart-axis + .lede{margin-top:32px;}
+.src{font-family:var(--mono);font-size:17px;color:var(--ink);opacity:.55;letter-spacing:.02em;margin-top:16px;}
+
+/* stat-pair (big-figure comparison) */
+.stat-pair{display:flex;align-items:center;justify-content:center;gap:80px;margin:40px 0 8px;}
+.stat-col{text-align:center;}
+.stat-num{font-family:var(--serif);font-weight:400;font-size:260px;line-height:.92;letter-spacing:-.02em;color:var(--ink);}
+.stat-num .pct{font-size:120px;vertical-align:baseline;margin-left:6px;}
+.stat-label{font-family:var(--sans);font-size:30px;line-height:1.4;color:var(--ink);opacity:.82;margin-top:18px;}
+.stat-vs{font-family:var(--mono);font-size:40px;color:var(--ink-soft);letter-spacing:.04em;padding-bottom:80px;}
+
+/* distance figures on the flow slide */
+.dist-row{display:flex;gap:40px;flex-wrap:wrap;margin-top:30px;}
+.dist{font-family:var(--mono);font-size:24px;color:var(--ink);letter-spacing:.01em;border-left:3px solid var(--ink);padding-left:18px;}
+.dist b{font-weight:500;color:var(--ink-soft);}
+
 /* index list */
 .idx{display:flex;flex-direction:column;flex:1;justify-content:center;}
 .idx-row{display:grid;grid-template-columns:110px 1fr;gap:44px;padding:30px 0;
@@ -435,6 +456,10 @@ body.editing [contenteditable]:focus{outline:2px solid var(--ink);background:rgb
           <div class="flow-step reveal" style="--i:5"><div class="n">05</div><h4>리테일러 · 고객</h4><p>비로소 시장 안으로.</p></div>
         </div>
         <p class="lede reveal" style="--i:6">캐나다는 넓습니다. 항구와 소비지가 붙어 있지 않죠. 여기서는 <em>거리 자체가 비용이고, 시간</em>입니다.</p>
+        <div class="dist-row reveal" style="--i:7">
+          <span class="dist"><b>부산 → 밴쿠버</b> 해상 약 8,650&#8202;km · 13일+</span>
+          <span class="dist"><b>밴쿠버 → 토론토</b> 육로 약 4,150&#8202;km</span>
+        </div>
         </div>
       </div>
     </section>
@@ -594,6 +619,43 @@ body.editing [contenteditable]:focus{outline:2px solid var(--ink);background:rgb
       </div>
     </section>
 
+    <!-- ========== 20b · 운임 실측 — 팬데믹 급등 (data) ========== -->
+    <section class="slide s-chart">
+      <div class="frame">
+        <div class="topbar">
+          <h2 class="reveal" style="--i:0">2020–2022, 실제로 이런 일이 있었습니다</h2>
+          <span class="tag reveal" style="--i:0">40ft 컨테이너 운임 지수 · USD</span>
+        </div>
+        <div class="ratechart reveal" style="--i:1">
+          <svg viewBox="0 0 1560 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="컨테이너 운임 지수 추이">
+            <!-- baseline grid -->
+            <line x1="70" y1="420" x2="1520" y2="420" stroke="var(--ink)" stroke-width="1.5"/>
+            <line x1="70" y1="60"  x2="70"  y2="420" stroke="var(--ink)" stroke-width="1.5"/>
+            <!-- gridlines at ~5k / 10k / 15k / 20k -->
+            <line x1="70" y1="330" x2="1520" y2="330" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="3 9"/>
+            <line x1="70" y1="240" x2="1520" y2="240" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="3 9"/>
+            <line x1="70" y1="150" x2="1520" y2="150" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="3 9"/>
+            <!-- the curve: ~1500 flat → spike ~20000 → settle ~5900 -->
+            <polyline fill="none" stroke="var(--ink)" stroke-width="4"
+              points="70,393 250,391 430,388 560,360 660,250 760,110 880,84 980,120 1120,235 1300,300 1440,306 1520,304"/>
+            <!-- markers -->
+            <circle cx="250"  cy="391" r="7" fill="var(--paper)" stroke="var(--ink)" stroke-width="4"/>
+            <circle cx="880"  cy="84"  r="7" fill="var(--ink)"/>
+            <circle cx="1520" cy="304" r="7" fill="var(--paper)" stroke="var(--ink)" stroke-width="4"/>
+            <!-- callouts -->
+            <text x="250"  y="378" font-family="var(--mono)" font-size="22" fill="var(--ink)" text-anchor="middle">~$1,500</text>
+            <text x="880"  y="66"  font-family="var(--mono)" font-size="26" fill="var(--ink)" text-anchor="middle" font-weight="500">~$20,000</text>
+            <text x="1470" y="290" font-family="var(--mono)" font-size="22" fill="var(--ink)" text-anchor="middle">~$5,900</text>
+          </svg>
+        </div>
+        <div class="ratechart-axis reveal" style="--i:1">
+          <span class="t">2019 · 팬데믹 이전</span><span class="t">2021–22 · 정점</span><span class="t">2026 현재</span>
+        </div>
+        <p class="lede reveal mt-l" style="--i:2;margin-top:28px;">코로나 이전 <em>1,500달러</em> 남짓하던 운임이 정점엔 <em>2만 달러</em> 가까이 치솟았다가 다시 내려왔습니다. 배는 그대로인데 값은 <em>10배 넘게</em> 움직입니다.</p>
+        <p class="src reveal" style="--i:2">출처 · Drewry World Container Index / Freightos Baltic Index</p>
+      </div>
+    </section>
+
     <!-- ========== 21 · 회수 전환 + 손들기 (pivot) ========== -->
     <section class="slide s-statement s-pivot">
       <div class="frame center">
@@ -618,6 +680,29 @@ body.editing [contenteditable]:focus{outline:2px solid var(--ink);background:rgb
           <div class="idx-row tight reveal" style="--i:4"><span class="idx-num">04</span><div><div class="idx-name">링크드인 프로필</div></div></div>
         </div>
         <p class="lede reveal mt-m" style="--i:5">이것들이 <em>여러분보다 먼저</em> 시장에 도착합니다.</p>
+      </div>
+    </section>
+
+    <!-- ========== 22b · 회수 — 이민자 실측 데이터 (입국 ≠ 진입) ========== -->
+    <section class="slide s-stat">
+      <div class="frame">
+        <div class="topbar">
+          <h2 class="reveal" style="--i:0">이건 비유가 아니라, 숫자입니다</h2>
+          <span class="tag reveal" style="--i:0">캐나다 · 학력에 맞는 일자리 취업 비율</span>
+        </div>
+        <div class="stat-pair">
+          <div class="stat-col reveal" style="--i:1">
+            <div class="stat-num">44<span class="pct">%</span></div>
+            <div class="stat-label">최근 10년 내 입국한 이민자</div>
+          </div>
+          <div class="stat-vs reveal" style="--i:2">vs</div>
+          <div class="stat-col reveal" style="--i:3">
+            <div class="stat-num">64<span class="pct">%</span></div>
+            <div class="stat-label">캐나다 태생 (25–34세)</div>
+          </div>
+        </div>
+        <p class="lede reveal mt-l" style="--i:4">같은 학력을 가지고도, 그 학력에 <em>맞는 일자리</em>에 들어가는 비율이 이만큼 벌어집니다. 능력이 없어서가 아니라, 시장이 그 능력을 <em>아직 읽지 못해서</em>입니다.</p>
+        <p class="src reveal" style="--i:4">출처 · Statistics Canada, 2021 · 25–34세 학사 이상 기준</p>
       </div>
     </section>
 
