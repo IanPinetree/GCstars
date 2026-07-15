@@ -251,7 +251,7 @@ em{font-style:normal;color:var(--ink-soft);}
    LAYOUT: COLOPHON (closing)
    =========================================================== */
 .s-colophon .frame{justify-content:space-between;align-items:flex-end;text-align:right;}
-.colophon-title{font-family:var(--serif);font-weight:400;font-size:118px;line-height:1.08;letter-spacing:-.012em;color:var(--ink);}
+.colophon-title{font-family:var(--serif);font-weight:400;font-size:104px;line-height:1.08;letter-spacing:-.012em;color:var(--ink);}
 .colophon-sub{font-family:var(--sans);font-size:34px;line-height:1.6;color:var(--ink-soft);margin-top:36px;}
 .subtitle-reveal{font-family:var(--serif);font-weight:500;font-size:58px;line-height:1.25;color:var(--ink);
   border-top:1.5px solid var(--ink);padding-top:28px;margin-top:44px;display:inline-block;}
