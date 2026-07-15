@@ -734,6 +734,7 @@ body.editing [contenteditable]:focus{outline:2px solid var(--ink);background:rgb
 .photo-slot figcaption{position:absolute;z-index:2;right:18px;bottom:18px;padding:8px 10px;background:var(--ink);font-family:var(--mono);font-size:15px;line-height:1;letter-spacing:.06em;color:var(--paper);}
 .photo-slot--contain img{object-fit:contain;padding:24px;}
 .photo-slot--contain::before{border-color:rgba(31,43,224,.18);}
+.photo-slot--military img{padding:16px;}
 
 .flow-skeleton{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr 1.1fr;gap:14px;align-items:stretch;margin-top:16px;}
 .flow-zone,.flow-node{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:260px;padding:25px 22px;border:1.5px solid var(--ink);background:rgba(255,255,255,.38);}
